@@ -25,7 +25,7 @@ namespace APIContagem.Controllers
                     Environment.MachineName,
                     Local = "Teste",
                     Sistema = Environment.OSVersion.VersionString,
-                    Variavel = configuration["TesteAmbiente"],
+                    Variavel = configuration["TesteAmbienteACR"],
                     TargetFramework = Assembly
                         .GetEntryAssembly()?
                         .GetCustomAttribute<TargetFrameworkAttribute>()?
