@@ -24,3 +24,12 @@ jobs:
         docker build . --file Dockerfile --tag ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/apicontagem:latest
         docker tag ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/apicontagem:latest ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/apicontagem:$(date +%s)
         docker push ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/apicontagem
+    - name: Azure Login
+      uses: Azure/login@v1.1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Azure WebApp Container - Deployment da Aplicacao
+      uses: Azure/webapps-container-deploy@v1
+      with:
+        app-name: ghaacr
+        images: ${{ secrets.DOCKER_CONTAINER_REGISTRY }}/apicontagem:latest
