@@ -23,9 +23,9 @@ namespace APIContagem.Controllers
                 {
                     _CONTADOR.ValorAtual,
                     Environment.MachineName,
-                    Local = "Teste",
+                    Local = "GitHub Actions ACR",
                     Sistema = Environment.OSVersion.VersionString,
-                    Variavel = configuration["TesteAmbienteACR"],
+                    Variavel = configuration["TesteAmbiente"],
                     TargetFramework = Assembly
                         .GetEntryAssembly()?
                         .GetCustomAttribute<TargetFrameworkAttribute>()?
